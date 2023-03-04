@@ -1,0 +1,3 @@
+mongodb_py/.env
+*.json
+*.xls
