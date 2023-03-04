@@ -1,0 +1,19 @@
+start --> sudo docker-compose up
+shutdown --> sudo docker-compose down
+
+---- airflow catch-up and backfill -----------
+1.sudo docker exec -it fe6f063df54d bash (fe6f063df54d adalah container id dari airflow scheduler)
+2.airflow dags backfill -s 2023-02-01 -e 2023-02-11 dag_catchup_backfillv3
+(2023-02-01 adalah startdate, 2023-02-11 adalah end-date)
+(dag_catchup_backfillv3 adalah dag id)
+
+curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+sudo -u postgres psql	
+GRANT ALL PRIVILEGES ON DATABASE airflow_pg_conn TO airflow;
+
+psql postgresql://airflow:airflow@localhost:5432/postgres
+
+sudo docker build . --tag extending_airflow:latest
+
+sudo docker-compose up -d --no-deps --build airflow-webserver airflow-scheduler
