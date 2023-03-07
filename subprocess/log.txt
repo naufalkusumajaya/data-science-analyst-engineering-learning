@@ -1,0 +1,7 @@
+total 24
+drwxrwxr-x  3 naufal naufal 4096 Mar  7 13:58 .
+drwxrwxr-x 10 naufal naufal 4096 Mar  4 19:30 ..
+-rw-rw-r--  1 naufal naufal  263 Mar  7 13:37 dummy.py
+drwxrwxr-x  2 naufal naufal 4096 Mar  7 13:37 .ipynb_checkpoints
+-rw-rw-r--  1 naufal naufal    0 Mar  7 13:58 log.txt
+-rw-rw-r--  1 naufal naufal 4810 Mar  7 13:56 tutorial.ipynb
